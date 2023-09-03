@@ -3,6 +3,7 @@ package com.nhnacademy.mart;
 public class NhnMart {
 
     private final FoodStand foodStand = new FoodStand();
+    private final Counter counter = new Counter();
 
     public void prepareMart() {
         fillFoodStand();
@@ -30,5 +31,9 @@ public class NhnMart {
 
     public Basket provideBasket() {
         return new Basket();
+    }
+
+    public Counter getCounter() {
+        return counter;
     }
 }
