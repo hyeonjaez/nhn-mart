@@ -18,6 +18,23 @@ public class Customer {
     }
 
     // TODO pickFoods 메서드 구현
+    public void pickFoods(FoodStand foodStand) {
+        for (BuyList.Item item : buyList.getItems()) {
+            int itemCount = 0;
+
+            for (Food food : foodStand.getFoods()) {
+                if (item.getName().equals(food.getName())) {
+                    if (itemCount == item.getAmount()) {
+                        break;
+                    } else {
+                        basket.add(food);
+                        itemCount++;
+                        foodStand.delete(food);
+                    }
+                }
+            }
+        }
+    }
 
 
     // TODO payTox 메서드 구현
