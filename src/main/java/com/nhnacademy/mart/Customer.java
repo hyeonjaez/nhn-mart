@@ -4,12 +4,14 @@ public class Customer {
 
     // 고객 구매 목록
     private final BuyList buyList;
+    private final int money;
 
     // 고객 장바구니
     private Basket basket;
 
-    public Customer(BuyList buyList) {
+    public Customer(BuyList buyList, int money) {
         this.buyList = buyList;
+        this.money = money;
     }
 
     // 장바구니 챙기기
@@ -17,7 +19,6 @@ public class Customer {
         this.basket = basket;
     }
 
-    // TODO pickFoods 메서드 구현
     public void pickFoods(FoodStand foodStand) {
         for (BuyList.Item item : buyList.getItems()) {
             int itemCount = 0;
@@ -36,8 +37,9 @@ public class Customer {
         }
     }
 
-
-    // TODO payTox 메서드 구현
+    public void payTox(Counter counter) {
+        System.out.println("고객님 결제 후 잔액 : " + (money - counter.pay(basket)));
+    }
 
 
 }
