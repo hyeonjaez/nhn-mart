@@ -1,11 +1,16 @@
 package com.nhnacademy.mart;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class NhnMart {
 
+    private final static Logger logger = LoggerFactory.getLogger(NhnMart.class);
     private final FoodStand foodStand = new FoodStand();
     private final Counter counter = new Counter();
 
     public void prepareMart() {
+        printMsg();
         fillFoodStand();
     }
 
@@ -35,5 +40,9 @@ public class NhnMart {
 
     public Counter getCounter() {
         return counter;
+    }
+
+    public void printMsg() {
+        logger.info("NHN 마트에 오신 것을 환영합니다. 사고 싶은 물건을 골라주세요.");
     }
 }
