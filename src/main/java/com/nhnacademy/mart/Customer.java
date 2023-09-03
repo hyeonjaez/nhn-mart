@@ -1,14 +1,13 @@
 package com.nhnacademy.mart;
 
 import java.util.Iterator;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class Customer {
-
-    // 고객 구매 목록
+    private final static Logger logger = LoggerFactory.getLogger(Customer.class);
     private final BuyList buyList;
     private final int money;
-
-    // 고객 장바구니
     private Basket basket;
 
     public Customer(BuyList buyList, int money) {
@@ -35,7 +34,7 @@ public class Customer {
                     } else {
                         basket.add(food);
                         itemCount++;
-                        foodStand.delete(food);
+                        foods.remove();
                     }
                 }
             }
@@ -43,7 +42,11 @@ public class Customer {
     }
 
     public void payTox(Counter counter) {
-        System.out.println("고객님 결제 후 잔액 : " + (money - counter.pay(basket)));
+        printMsg(money - counter.pay(basket));
+    }
+
+    private void printMsg(int remainMoney) {
+        logger.info("고객님 결제 후 잔액 : " + remainMoney);
     }
 
 
