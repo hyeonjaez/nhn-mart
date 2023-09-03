@@ -10,6 +10,14 @@ public class Customer {
     private final int money;
     private Basket basket;
 
+    public BuyList getBuyList() {
+        return buyList;
+    }
+
+    public int getMoney() {
+        return money;
+    }
+
     public Customer(BuyList buyList, int money) {
         this.buyList = buyList;
         this.money = money;
