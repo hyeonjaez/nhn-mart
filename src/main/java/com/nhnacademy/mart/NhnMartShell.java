@@ -8,7 +8,6 @@ public class NhnMartShell {
         NhnMart mart = new NhnMart();
         mart.prepareMart();
 
-        System.out.println("NHN 마트에 오신 것을 환영합니다. 사고 싶은 물건을 골라주세요.");
         BuyList buyList = inputBuyListFromShell();
 
         Customer jaehyeon = new Customer(buyList, 20000);
