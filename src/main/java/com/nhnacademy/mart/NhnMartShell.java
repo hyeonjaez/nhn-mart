@@ -8,13 +8,10 @@ public class NhnMartShell {
         NhnMart mart = new NhnMart();
         mart.prepareMart();
 
+        System.out.println("NHN 마트에 오신 것을 환영합니다. 사고 싶은 물건을 골라주세요.");
         BuyList buyList = inputBuyListFromShell();
 
-        // TODO 본인이름 영어로 변수명 작성!
-        // 본인이름을 각자 맞게 영어로 변경
-        // 홍길동 학생
-        // -> hongGilDong or gilDong
-        Customer 본인이름 = new Customer(buyList);
+        Customer 본인이름 = new Customer(buyList, 20000);
 
         // 장바구니를 챙긴다.
         본인이름.bring(mart.provideBasket());
