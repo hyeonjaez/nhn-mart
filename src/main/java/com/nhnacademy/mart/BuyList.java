@@ -14,6 +14,10 @@ public class BuyList {
         }
     }
 
+    public ArrayList<Item> getItems() {
+        return items;
+    }
+
     public static class Item {
         private final String name;
         private final int amount;
