@@ -19,4 +19,25 @@ class CustomerTest {
         Assertions.assertEquals(customer.getBuyList(), buyList);
     }
 
+    @Test
+    @DisplayName("")
+    void pickFoodsTest() {
+        FoodStand foodStand = new FoodStand();
+        foodStand.add(new Food("양파", 2000));
+
+        BuyList buyList = new BuyList();
+        buyList.getItems().add(new BuyList.Item("양파", 1));
+        int money = 2000;
+
+        Customer customer = new Customer(buyList, money);
+
+        Basket basket = new Basket();
+        basket.add(new Food("양파", 2000));
+        customer.pickFoods(foodStand);
+
+        Assertions.assertEquals(basket.getFoods().get(0).getPrice(), customer.getBasket().getFoods().get(0).getPrice());
+        Assertions.assertEquals(basket.getFoods().get(0).getName(), customer.getBasket().getFoods().get(0).getName());
+
+    }
+
 }
