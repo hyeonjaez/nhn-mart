@@ -14,6 +14,10 @@ public class Customer {
         return buyList;
     }
 
+    public Basket getBasket() {
+        return basket;
+    }
+
     public int getMoney() {
         return money;
     }
