@@ -1,5 +1,7 @@
 package com.nhnacademy.mart;
 
+import java.util.Iterator;
+
 public class Customer {
 
     // 고객 구매 목록
@@ -23,10 +25,13 @@ public class Customer {
         for (BuyList.Item item : buyList.getItems()) {
             int itemCount = 0;
 
-            for (Food food : foodStand.getFoods()) {
+            for (Iterator<Food> foods = foodStand.getFoods().iterator(); foods.hasNext(); ) {
+                Food food = foods.next();
+
                 if (item.getName().equals(food.getName())) {
                     if (itemCount == item.getAmount()) {
                         break;
+
                     } else {
                         basket.add(food);
                         itemCount++;
